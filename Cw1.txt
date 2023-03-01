@@ -1,0 +1,43 @@
+Sieci Lab2
+google -> wireshark + przechwytywanie protokołów 
+Zad_domowe 1 
+(srodek szczegoly naglowki)
+(na dole pakiet surowy 16-stkowy)
+Wyszukac https....
+Zatrzymac -> kliknac gora i srodek mozna szukac informacji
+Zad_domowe 2
+cmd -> ipconfig
+google -> what is my ip (Jest inna) uzywany strony whatismyip
+W cmd mamy rozne ip, ale na stronie ten sam(wyroznia uzytkownikow wedlug adresu)
+google -> who is ip -> whatismyip.com -> wklejamy skopiowany ze strony i wyszkujemy i szczegolowe info w rejestrach
+Zad_domowe 3
+gogole -> speedtestnet -> mierzymy predkosc do neta -> GO -> Wyniki
+(change serwer i mozemy sprawdzic polaczenie z roznymi serwerami np  Warszawa, rio itp)
+Zad_domowe 4
+cmd -> ping adres....(mierzy czas odpowiedzi i go otrzymujemy)
+np ping www.google.com jezeli polecenie i wszystko dziala to okey
+ping // -> rozne opcje
+ping -a adres.....
+Zad_domowe 5
+cmd -> tracert (linux tracerout) sprawdzanie drogi
+tracert www.google.comm (trasa czyli routery posrednie jezlei ping do google nie dziala)
+ile routerow do google i odpowiedzi od nich np router jakis, router uwm, uwm czy miejska, olsztyn-poznan, google
+te adresy mozna sprawdzic kto wlasciciel
+Zad_domowe 6
+cmd -> nslookup -> wpisujemy nazwe dowolna domentowa google.pl Jezeli bedzie taki sam to znaczy ze mamy problem z DNS
+kopiujemy nasz DNS i cmd -> nslookup /? -> nslookup - adres DNS chyba -> google.pl
+Ustawienia karty sieciowej -> nowe adres serwera DNS -> 
+nslookup - 1.1.1.1 -> google.com i dziala
+nslookup - 8.8.8.8 -> uwm.edu.pl -> dziala
+
+mail.google.com (kilka odp)
+Zad_domowe 7
+cmd -> arp /? (uzycie tego) -> -a wysweitla, -d usuwa wszystkie wpisy
+adresujemy adresy na adresy map???
+arp -ad
+arp -d (Wycofane dynamiczne wpisy, ale wygama uprawnien administratora
+Zad_domowe 8
+C -> windows -> System 32 -> drivers -> etc -> (wymaga zgodny administratora) -> np hosts wczesniejsze pliki gdy sieci byly male i nie bylo DNS -> wysweitlamy jako notatnik -> autocad np 
+na samym dole adres strojny wydzialu i np google.pl to przy google wyswietli sie strona wydzialu
+Pierw hosts, pozniej DNS 
+inne pliki: lmhosts do lokalnych, (zad domowe), GLowny hosts
