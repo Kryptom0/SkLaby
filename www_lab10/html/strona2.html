@@ -1,0 +1,65 @@
+<style>
+    body {
+        color: black;
+        text-align: center;
+    }
+
+    table, th, td {
+        border: 1px solid black;
+    }
+
+    h1 {
+        color: black;
+        margin: 20px 0;
+    }
+
+    h2 {
+        font-size: 24px;
+        margin: 10px 0;
+    }
+
+    p {
+        font-size: 18px;
+        margin: 10px 0;
+    }
+</style>
+<div id="zegarek"></div>
+<div id="data"></div>
+<FORM METHOD="POST" NAME="background">
+    <INPUT TYPE="button" VALUE="szary" ONCLICK="changeBackground('#E4EDF7')">
+    <INPUT TYPE="button" VALUE="czarny" ONCLICK="changeBackground('#515254')">
+    <INPUT TYPE="button" VALUE="niebieski" ONCLICK="changeBackground('#0F4BC2')">
+    <INPUT TYPE="button" VALUE="zielony" ONCLICK="changeBackground('#32EB47')">
+    <INPUT TYPE="button" VALUE="żółty" ONCLICK="changeBackground('#D6FA46')">
+    <INPUT TYPE="button" VALUE="czerwony" ONCLICK="changeBackground('#D40823')">
+    <INPUT TYPE="button" VALUE="fioletowy" ONCLICK="changeBackground('#E827DE')">
+    <INPUT TYPE="button" VALUE="miętowy" ONCLICK="changeBackground('#6FE8B6')">
+</FORM>
+<h2><b>Ranking</b></h2>
+<h2>Najwyższe budynki na świecie (wysokość do szczytu architektonicznego):</h2>
+<p>1. Burdż Chalifa – 828 m - Dubaj</p>
+<p>2. Shanghai Tower – 623 m - Szanghaj</p>
+<p>3. Abradż al-Bajt – 601 m - Mekka</p>
+<p>4. Ping An Finance Center – 599,1 m - Shenzhen</p>
+<p>5. Lotte World Tower – 554,5 m - Seul</p>
+<p>6. One World Trade Center – 541,3 m - Nowy Jork</p>
+<p>7. Guangzhou CTF Finance Centre – 530 m - Guangzhou</p>
+<p>8. Tianjin CTF Finance Centre – 530 m - Tiencin</p>
+<p>9. China Zun – 527,7 m - Pekin</p>
+<p>10. Taipei 101 – 508 m - Tajpej</p>
+<div id="animacjaTestowa2" class="test-block">Najedź kursorem, a sie powiększe</div>
+<script>
+    $("#animacjaTestowa2").on({
+        'mouseover': function () {
+            $(this).animate({
+                width: 300
+            }, 800);
+        },
+        'mouseout': function () {
+            $(this).animate({
+                width: 200
+            }, 800);
+        }
+    });
+</script>
+</html>

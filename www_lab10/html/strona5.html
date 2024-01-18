@@ -1,0 +1,76 @@
+<style>
+    h1 {
+        color: black;
+    }
+
+    .contact-container {
+        display: flex;
+        justify-content: center;
+    }
+
+    .contact-form {
+        background-color: #f9f9f9;
+        padding: 20px;
+        border: 1px solid #333;
+        border-radius: 5px;
+        max-width: 400px;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    input[type="text"], input[type="email"], textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    input[type="submit"] {
+        background-color: #333;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #555;
+    }
+</style>
+</head>
+<div id="zegarek"></div>
+<div id="data"></div>
+<FORM METHOD="POST" NAME="background">
+    <INPUT TYPE="button" VALUE="szary" ONCLICK="changeBackground('#E4EDF7')">
+    <INPUT TYPE="button" VALUE="czarny" ONCLICK="changeBackground('#515254')">
+    <INPUT TYPE="button" VALUE="niebieski" ONCLICK="changeBackground('#0F4BC2')">
+    <INPUT TYPE="button" VALUE="zielony" ONCLICK="changeBackground('#32EB47')">
+    <INPUT TYPE="button" VALUE="żółty" ONCLICK="changeBackground('#D6FA46')">
+    <INPUT TYPE="button" VALUE="czerwony" ONCLICK="changeBackground('#D40823')">
+    <INPUT TYPE="button" VALUE="fioletowy" ONCLICK="changeBackground('#E827DE')">
+    <INPUT TYPE="button" VALUE="miętowy" ONCLICK="changeBackground('#6FE8B6')">
+</FORM>
+<h1>Kontakt</h1>
+<h2>Podstrony</h2>
+</table>
+<h2>Formularz Kontaktowy</h2>
+<div class="contact-container">
+    <form class="contact-form">
+        <label for="name">Imię:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Adres e-mail:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="message">Wiadomość:</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+
+        <button type="submit">Wyślij wiadomość</button>
+    </form>
+</div>
+</html>

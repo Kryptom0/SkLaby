@@ -1,0 +1,50 @@
+<div id="zegarek"></div>
+<div id="data"></div>
+<FORM METHOD="POST" NAME="background">
+    <INPUT TYPE="button" VALUE="szary" ONCLICK="changeBackground('#E4EDF7')">
+    <INPUT TYPE="button" VALUE="czarny" ONCLICK="changeBackground('#515254')">
+    <INPUT TYPE="button" VALUE="niebieski" ONCLICK="changeBackground('#0F4BC2')">
+    <INPUT TYPE="button" VALUE="zielony" ONCLICK="changeBackground('#32EB47')">
+    <INPUT TYPE="button" VALUE="żółty" ONCLICK="changeBackground('#D6FA46')">
+    <INPUT TYPE="button" VALUE="czerwony" ONCLICK="changeBackground('#D40823')">
+    <INPUT TYPE="button" VALUE="fioletowy" ONCLICK="changeBackground('#E827DE')">
+    <INPUT TYPE="button" VALUE="miętowy" ONCLICK="changeBackground('#6FE8B6')">
+</FORM>
+<h1>Najwyższe budynki na świecie</h1>
+<h2>Podstrony</h2>
+<h2><i>Podstawowe informacje</i></h2>
+<p>Jakie są najwyższe budynki na świecie? Choć pytanie może wydawać proste, to takie nie jest. Warto wyjaśnić, czym w
+    ogóle jest budynek?</p>
+<p>Budynek to rodzaj budowli lub jej część, w zakresie której wydzielono poprzez przegrody budowlane, takie jak ściany
+    zewnętrzne i dach lub stropodach,
+    przestrzeń użytkowaną przez człowieka w rozmaity sposób. Przestrzeń ta może być wewnętrznie dzielona poprzez
+    elementy budynku takie jak ściany stropy.
+    Właśnie dlatego, na liście najwyższych budynków świata nie znajdziemy wież i masztów. Są one budowlami, ale nie
+    budynkami.</p>
+<p>Wysokie budynki bywają nazywane wieżowcami. Przyjęło się, że za wieżowce uznajemy budynki o wysokości przekraczającej
+    150 metrów.
+    Takie niepisane zasady obowiązują w USA, choć należy zaznaczyć, że w zależności od regionu świata, definicja może
+    się różnić.
+    Wieżowce o wysokości przekraczającej 300 metrów bywają nazywane superwysokimi.</p>
+<p>Ten ranking jest oparty o wysokości do szczytu architektonicznego.</p>
+<p>Wysokość do szczytu architektonicznego — obejmuje iglicę, lecz nie są uwzględniane anteny, oznakowania, maszty
+    flagowe oraz inne wyposażenie funkcjonalno-techniczne. To właśnie ta miara jest najpowszechniej stosowana na
+    świecie.</p>
+<div class="centered-images">
+    <img src="img/ab.png" alt="Obraz 1">
+</div>
+<div class="centered-images">
+    <img src="img/x_zdj2.jpg" alt="Obraz 2">
+</div>
+<div id="animacjaTestowa1" class="test-block">Kliknij, a sie powiększe</div>
+<script>
+    $("#animacjaTestowa1").on("click", function () {
+        $(this).animate({
+            width: "500px",
+            opacity: 0.4,
+            fontSize: "3em",
+            borderWidth: "10px"
+        }, 1500);
+    });
+
+</script>
