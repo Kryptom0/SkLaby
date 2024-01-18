@@ -6,7 +6,7 @@ if (!isset($_SESSION['UserData']['Username'])) {
 } else {
     echo "Gratulacje, zostałeś zalogowany!<br /> <a href=logout.php>Kliknij tutaj</a> aby się wylogować. <br /> ";
     //Strony
-    $mysqli = new mysqli("localhost", "root", "", "moja_strona");
+    /*$mysqli = new mysqli("localhost", "root", "", "moja_strona");
     $query = "SELECT * FROM page_list";
     $result = mysqli_query($mysqli, $query);
     if (empty($row['id'])) {
@@ -15,7 +15,7 @@ if (!isset($_SESSION['UserData']['Username'])) {
         $web = $row['page_content'];
     }
     echo("<br>");
-    echo 'STRONY';
+    echo 'STRONY:';
     echo '<form action="" method="post">';
     while ($row = mysqli_fetch_array($result)) {
         echo '<div class="page-entry" style="display: flex;align-items: center;">
@@ -57,9 +57,10 @@ if (!isset($_SESSION['UserData']['Username'])) {
         $id_Delete = $_POST['id_zmiana'];
         UsunPodstrone($id_Delete);
     }
-
+    */
     //Sklep z kategoriami i podkategoriami
     //
+    #POCZATEK
     $mysqli = new mysqli("localhost", "root", "", "moja_strona");
     $query = "SELECT * FROM category_data";
     $result = mysqli_query($mysqli, $query);
@@ -68,20 +69,40 @@ if (!isset($_SESSION['UserData']['Username'])) {
     } else {
         $web = $row['page_content'];
     }
-    echo("<br>");
-    echo 'KATEGORIE';
-    echo '<form action="" method="post">';
-    while ($row = mysqli_fetch_array($result)) {
+    function echoCategory($category, $categories)
+    {
         echo '<div class="page-entry" style="display: flex;align-items: center;">
-            <p>' . htmlspecialchars($row['id']) . ' ' . htmlspecialchars($row['nazwa']) . ' ' . htmlspecialchars($row['matka']) . '
+            <p>' . htmlspecialchars($category['id']) . ' ' . htmlspecialchars($category['nazwa']) . '
             <form action="" method="post" style="margin-left: 10px">
-                <input type="hidden" name="id_zmiana2" value="' . htmlspecialchars($row['id']) . '">
-                <input type=submit name=edytuj2 value=edytuj> 
-                <input type=submit name=usun2 value=usuń>
+                <input type="hidden" name="id_zmiana2" value="' . htmlspecialchars($category['id']) . '">
+                <input type="submit" name="edytuj2" value="edytuj"> 
+                <input type="submit" name="usun2" value="usuń">
             </form>
             </p></div>';
+        // Sprawdź i wyświetl podkategorie
+        if (isset($categories[$category['id']])) {
+            foreach ($categories[$category['id']] as $subcategory) {
+                echoCategory($subcategory, $categories);
+            }
+        }
+    }
+
+    echo("<br>");
+    echo 'KATEGORIE:';
+    echo '<form action="" method="post">';
+// Pobranie wszystkich kategorii
+    $categories = array();
+    while ($row = mysqli_fetch_assoc($result)) {
+        $categories[$row['matka']][] = $row;
+    }
+
+// Wyświetlanie kategorii i podkategorii
+    echo '<form action="" method="post">';
+    foreach ($categories[0] as $category) {
+        echoCategory($category, $categories);
     }
     echo '</form>';
+    #
     echo '<form method="post"><input type="submit" name="Dodaj2" value="Dodaj"></form>';
     if (isset($_POST['Dodaj2'])) {
         DodajNowaKategorie();
@@ -112,12 +133,12 @@ if (!isset($_SESSION['UserData']['Username'])) {
     //
 }
 echo("<br>");
-
+#KONIEC
 /*
 Funkcja EdytujPodstrone wyświetla formularz umożliwiający edycję istniejącej podstrony.
 Pobiera dane z bazy danych dla podstrony o podanym identyfikatorze $id i umożliwia
 zmianę tytułu, treści oraz statusu aktywności.
-*/
+
 
 function EdytujPodstrone($id)
 {
@@ -137,7 +158,7 @@ function EdytujPodstrone($id)
 /*
 Funkcja DodajNowaPodstrone wyświetla formularz umożliwiający dodanie nowej podstrony.
 Pozwala na wprowadzenie nowego tytułu i treści dla podstrony, które są następnie dodawane do bazy danych.
-*/
+
 function DodajNowaPodstrone()
 {
     echo '<form action="" method="post" style="text-align: left">';
@@ -152,7 +173,7 @@ function DodajNowaPodstrone()
 /*
 Funkcja UsunPodstrone usuwa podstronę o podanym identyfikatorze $id z bazy danych.
 Po wykonaniu operacji wyświetla komunikat informujący o usunięciu podstrony.
-*/
+
 function UsunPodstrone($id)
 {
     $mysqli = new mysqli("localhost", "root", "", "moja_strona");
@@ -160,7 +181,7 @@ function UsunPodstrone($id)
     mysqli_query($mysqli, $query);
     echo "Usunięto podstrone o ID: $id.";
 }
-
+*/
 // Sklep z katerogirami i podkategoriami metody
 //
 function EdytujKategorie($id)
@@ -171,7 +192,7 @@ function EdytujKategorie($id)
     $row = mysqli_fetch_array($result);
     echo '<form action="admin.php" method="post">';
     echo 'Matka: <input type="text" name="nowa_matka" value="' . $row['matka'] . '"><br>';
-    echo 'Nazwa: <textarea name="nowa_nazwa" style="width: 150px; height: 150px;">' . $row['nazwa'] . '</textarea><br>';
+    echo 'Nazwa: <textarea name="nowa_nazwa" style="width: 100px; height: 100px;">' . $row['nazwa'] . '</textarea><br>';
     echo '<input type="submit" name="zapisz2" value="Zapisz">';
     echo '<input type="hidden" name="id" value="' . $row['id'] . '"><br>';
     echo '</form>';
