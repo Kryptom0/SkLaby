@@ -1,0 +1,44 @@
+</head>
+<div id="zegarek"></div>
+<div id="data"></div>
+<FORM METHOD="POST" NAME="background">
+    <INPUT TYPE="button" VALUE="szary" ONCLICK="changeBackground('#E4EDF7')">
+    <INPUT TYPE="button" VALUE="czarny" ONCLICK="changeBackground('#515254')">
+    <INPUT TYPE="button" VALUE="niebieski" ONCLICK="changeBackground('#0F4BC2')">
+    <INPUT TYPE="button" VALUE="zielony" ONCLICK="changeBackground('#32EB47')">
+    <INPUT TYPE="button" VALUE="żółty" ONCLICK="changeBackground('#D6FA46')">
+    <INPUT TYPE="button" VALUE="czerwony" ONCLICK="changeBackground('#D40823')">
+    <INPUT TYPE="button" VALUE="fioletowy" ONCLICK="changeBackground('#E827DE')">
+    <INPUT TYPE="button" VALUE="miętowy" ONCLICK="changeBackground('#6FE8B6')">
+</FORM>
+<h1>Filmy</h1>
+<h2>Podstrony</h2>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ebD_Szbxnq4?si=RcXNPa3HyB-Xof-s"
+        title="YouTube video player" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/r9omqwqHNiE?si=sstYd4nfzcnfCaSN"
+        title="YouTube video player" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/cZp8d0r4bjA?si=xU0yT-uvHfzAh4h6"
+        title="YouTube video player" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen></iframe>
+<div id="animacjaTestowa2" class="test-block">Najedź kursorem, a sie powiększe</div>
+<script>
+    $("#animacjaTestowa2").on({
+        'mouseover': function () {
+            $(this).animate({
+                width: 300
+            }, 800);
+        },
+        'mouseout': function () {
+            $(this).animate({
+                width: 200
+            }, 800);
+        }
+    });
+
+</script>
+</html>
