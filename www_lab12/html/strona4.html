@@ -1,0 +1,83 @@
+<style>
+    body {
+        color: black;
+        text-align: center;
+    }
+
+    table, th, td {
+        border: 1px solid black;
+    }
+
+    h1 {
+        color: black;
+        margin: 20px 0;
+    }
+
+    h2 {
+        font-size: 24px;
+        margin: 10px 0;
+    }
+
+    p {
+        font-size: 18px;
+        margin: 10px 0;
+        text-align: justify;
+    }
+</style>
+</head>
+<div id="zegarek"></div>
+<div id="data"></div>
+<FORM METHOD="POST" NAME="background">
+    <INPUT TYPE="button" VALUE="szary" ONCLICK="changeBackground('#E4EDF7')">
+    <INPUT TYPE="button" VALUE="czarny" ONCLICK="changeBackground('#515254')">
+    <INPUT TYPE="button" VALUE="niebieski" ONCLICK="changeBackground('#0F4BC2')">
+    <INPUT TYPE="button" VALUE="zielony" ONCLICK="changeBackground('#32EB47')">
+    <INPUT TYPE="button" VALUE="żółty" ONCLICK="changeBackground('#D6FA46')">
+    <INPUT TYPE="button" VALUE="czerwony" ONCLICK="changeBackground('#D40823')">
+    <INPUT TYPE="button" VALUE="fioletowy" ONCLICK="changeBackground('#E827DE')">
+    <INPUT TYPE="button" VALUE="miętowy" ONCLICK="changeBackground('#6FE8B6')">
+</FORM>
+<h1>Informacje</h1>
+<h2>Podstrony</h2>
+<table style="width:100%">
+</table>
+<h2><u class="spelling-error">Informacje</u></h2>
+<p> Pierwsze miejsce w zestawieniu przypadło dubajskiemu Burdżowi Chalifa.
+    Wieżowiec mierzy 828 metrów. Nic więc dziwnego, że koszt budowy wyniósł aż 1,5 mld USD.
+    20 maja 2008 roku budynek ten stał się najwyższą lądową konstrukcją budowlaną, jaką kiedykolwiek zbudował człowiek.
+    Co ciekawe, miano to odebrał polskiemu masztowi radiowemu. Chodzi oczywiście, o mierzący 646 metrów maszt w
+    Konstantynowie.
+    Maszt uległ zniszczeniu w 1991 roku.</p>
+<p>Na drugim miejscu znalazł się mierzący 623 metry wieżowiec Shanghai Tower. Został ukończony w 2015 roku.
+    Pełni rolę hotelu oraz biurowca. Podium z wynikiem 601 metrów zamyka Makkah Royal Clock Tower. To olbrzymi
+    postmodernistyczny kompleks hotelowy, który został ukończony w 2011 roku. Liczy 120 kondygnacji i 1 500 000 m²
+    powierzchni użytkowej. Jest nie tylko trzecim najwyższym budynkiem świata, ale sam posiada kilka rekordów.
+    To najwyższy hotel świata, posiada największy zegar wieżowy świata, a także sam jest największym budynkiem pod
+    względem powierzchni. Kompleks znajduje się w Mekce.</p>
+<p>Czwarte miejsce zajął Ping An Finance Center. To olbrzymi, mierzący 599,1 metrów biurowiec położony w Shenzen w
+    Chinach.
+    Pierwszą piątkę zamyka Lotte World Tower z imponującymi 554,5 metrami wysokości. Wieżowiec znajduje się w stolicy
+    Korei Południowej — Seulu. Dopiero na szóstej pozycji znajduje się przedstawiciel Stanów Zjednoczonych.
+    Jest nim mierzący 541,3 metrów wieżowiec One World Trade Center. Został zbudowany w Nowym Jorku w miejscu, gdzie
+    wcześniej stały dwie słynne wieże.</p>
+<p>Siódme, ósme i dziewiąte miejsce przypadły Chinom. Są to kolejno: Guangzhou CTF Finance Centre (530 metrów),
+    Tianjin CTF Finance Centre (530 metrów) oraz CITIC Tower (527,7 metrów). Wieżowce powstały kolejno w 2016, 2019 oraz
+    2018 roku.
+    Dzięki temu Chiny posiadają w pierwszej dziesiątce najwyższych budynków świata aż pięciu przedstawicieli.
+    Pierwszą dziesiątkę zamyka Taipei 101. Mierzy 508 metrów wysokości. Wieżowiec został zbudowany na Tajwanie w 2004
+    roku i przez cztery lata był najwyższym budynkiem świata.
+    Swój tytuł oddał wieżowcowi z Dubaju.</p>
+<div id="animacjaTestowa3" class="test-block">Kliknij, abym urósł</div>
+<script>
+    $("#animacjaTestowa3").on("click", function () {
+        if (!$(this).is(":animated")) {
+            $(this).animate({
+                width: "+=" + 50,
+                height: "+=" + 10,
+                opacity: "-=" + 0.1,
+                duraction: 3000
+            });
+        }
+    });
+</script>
+</html>
