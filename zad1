@@ -124,3 +124,253 @@ void program7()
         }
     }
 }
+
+
+
+INNE!!
+//PIC24FJ128GA010 Configuration Bit Settings
+// For more on Configuration Bits, see Section 1.1
+// consult your device data sheet
+// CONFIG2
+#pragma config POSCMOD = XT // XT Oscillator mode selected
+#pragma config OSCIOFNC = ON // OSC2/CLKO/RC15 as port I/O (RC15)
+#pragma config FCKSM = CSDCMD // Clock Switching and Monitor disabled
+#pragma config FNOSC = PRI // Primary Oscillator (XT, HS, EC)
+#pragma config IESO = ON // Int Ext Switch Over Mode enabled
+// CONFIG1
+#pragma config WDTPS = PS32768 // Watchdog Timer Postscaler (1:32,768)
+#pragma config FWPSA = PR128 // WDT Prescaler (1:128)
+#pragma config WINDIS = ON // Watchdog Timer Window Mode disabled
+#pragma config FWDTEN = OFF // Watchdog Timer disabled
+#pragma config ICS = PGx2 //Emulator/debugger uses EMUC2/EMUD2
+#pragma config GWRP = OFF // Writes to program memory allowed
+#pragma config GCP = OFF // Code protection is disabled
+#pragma config JTAGEN = OFF // JTAG port is disabled
+// #pragma config statements should precede project file includes.
+// Use project enums instead of #define for ON and OFF.
+
+#include <xc.h>
+#include <libpic30.h>
+#include "buttons.h"
+#include <math.h>
+
+int program = 1;
+
+int potega(int x, int y){
+    int z = 1;
+    for (int i=0; i<y; i++){
+        z = z*x;
+    }
+    return z;
+}
+
+void program1(){
+    for(int i=0; i<255; i++) {
+        if(BUTTON_IsPressed(BUTTON_S6) == true){
+            program ++;
+            return;
+        }
+        else if(BUTTON_IsPressed(BUTTON_S3) == true){
+            program = 9;
+            return;
+        }
+        LATA = i;
+        __delay32(1500000);
+        }
+}
+
+void program2(){
+    for(int i=255; i>0; i--) {
+        if(BUTTON_IsPressed(BUTTON_S6) == true){
+            program ++;
+            return;
+        }
+        else if(BUTTON_IsPressed(BUTTON_S3) == true){
+            program --;
+            return;
+        }
+        LATA = i;
+        __delay32(1500000);
+        }
+}
+
+void program3(){
+    for(int i=0; i<255; i++) {
+        if(BUTTON_IsPressed(BUTTON_S6) == true){
+            program ++;
+            return;
+        }
+        else if(BUTTON_IsPressed(BUTTON_S3) == true){
+            program --;
+            return;
+        }
+        LATA = i ^ (i / 2);
+        __delay32(1500000);
+        }
+}
+
+void program4(){
+    for(int i=255; i>0; i--) {
+        if(BUTTON_IsPressed(BUTTON_S6) == true){
+            program ++;
+            return;
+        }
+        else if(BUTTON_IsPressed(BUTTON_S3) == true){
+            program --;
+            return;
+        }
+        LATA = i ^ (i / 2);
+        __delay32(1500000);
+        }
+}
+
+void program5(){
+    for(int i=0; i<99; i++) {
+        if(BUTTON_IsPressed(BUTTON_S6) == true){
+            program ++;
+            return;
+        }
+        else if(BUTTON_IsPressed(BUTTON_S3) == true){
+            program --;
+            return;
+        }
+        int p=i/10*16;
+        int d=i%10;
+        LATA = p+d;
+        __delay32(1500000);
+        }
+}
+
+void program6(){
+    for(int i=99; i>0; i--) {
+        if(BUTTON_IsPressed(BUTTON_S6) == true){
+            program ++;
+            return;
+        }
+        else if(BUTTON_IsPressed(BUTTON_S3) == true){
+            program --;
+            return;
+        }
+        int p=i/10*16;
+        int d=i%10;
+        LATA = p+d;
+        __delay32(1500000);
+        }
+}
+
+void program7(){
+    for(int i=0; i<6; i++) {
+        if(BUTTON_IsPressed(BUTTON_S6) == true){
+            program ++;
+            return;
+        }
+        else if(BUTTON_IsPressed(BUTTON_S3) == true){
+            program --;
+            return;
+        }
+        LATA = potega(2, i) + potega(2, i+1) +potega(2, i+2);
+        __delay32(1500000);
+        }
+    for(int i=4; i>0; i--) {
+         if(BUTTON_IsPressed(BUTTON_S6) == true){
+            program ++;
+            return;
+        }
+        else if(BUTTON_IsPressed(BUTTON_S3) == true){
+            program --;
+            return;
+        }
+        LATA = potega(2, i) + potega(2, i+1) +potega(2, i+2);
+        __delay32(1500000);
+        }
+}
+
+void program8(){
+    int k = 0;
+    for(int i=7; i>=0; i--) {
+        for(int j=0; j<8; j++){
+            if(BUTTON_IsPressed(BUTTON_S6) == true){
+            program ++;
+            return;
+            }
+            else if(BUTTON_IsPressed(BUTTON_S3) == true){
+                program --;
+                return;
+            }
+            if(i==j){
+                break;
+            }
+            LATA = potega(2, j) + k;
+            __delay32(1500000);
+        }
+    k += potega(2, i);
+    }
+}
+
+void program9(){
+    int k = 0b1110011;
+    int b;
+    while(1) {
+         if(BUTTON_IsPressed(BUTTON_S6) == true){
+            program = 1;
+            return;
+        }
+        else if(BUTTON_IsPressed(BUTTON_S3) == true){
+            program --;
+            return;
+        }
+        b = ((k >> 0)^(k >> 1)^(k >> 4)^(k >> 5))&1;
+        k = (k >> 1) | (b << 7);
+        LATA = k;
+        __delay32(1500000);
+        }
+}
+
+int main(void) {
+    AD1PCFG = 0xFFFF;
+    TRISA = 0x0000;
+    while(1){
+        switch(program)
+        {
+            case 1:
+                program1();
+                 __delay32(1000000);
+                break;
+            case 2:
+                program2();
+                 __delay32(1000000);
+                break;  
+            case 3:
+                program3();
+                 __delay32(1000000);
+                break; 
+            case 4:
+                program4();
+                 __delay32(1000000);
+                break; 
+            case 5:
+                program5();
+                 __delay32(1000000);
+                break; 
+            case 6:
+                program6();
+                 __delay32(1000000);
+                break;
+            case 7:
+                program7();
+                 __delay32(1000000);
+                break;
+            case 8:
+                program8();
+                 __delay32(1000000);
+                break;
+            case 9:
+                program9();
+                 __delay32(1000000);
+                break;
+        }
+    }
+    
+    return -1;
+}
+
